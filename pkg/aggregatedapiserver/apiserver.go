@@ -58,8 +58,8 @@ type CompletedConfig struct {
 // Complete fills in any fields not set that are required to have valid data. It's mutating the receiver.
 func (cfg *Config) Complete() CompletedConfig {
 	c := completedConfig{
-		cfg.GenericConfig.Complete(),
-		&cfg.ExtraConfig,
+		GenericConfig: cfg.GenericConfig.Complete(),
+		ExtraConfig:   &cfg.ExtraConfig,
 	}
 
 	c.GenericConfig.Version = &version.Info{
